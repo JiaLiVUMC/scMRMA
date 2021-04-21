@@ -11,7 +11,7 @@ scMRMA R package can be easily installed from Github using devtools:
 ```
 devtools::install_github("JiaLiVUMC/scMRMA")
 ```
-some users might have issues when installing scMRMA pacakge due to the version of C++, please check possible solution through [this website](https://teuder.github.io/rcpp4everyone_en/020_install.html)
+some users might have issues when installing scMRMA package due to the version of C++, please check possible solution through [this website](https://teuder.github.io/rcpp4everyone_en/020_install.html)
 
 ## Usage
 
