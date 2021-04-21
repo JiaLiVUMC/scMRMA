@@ -20,13 +20,13 @@ After installing scMRMA, use following codes to run examples
 ```R
 library(scMRMA)
 load(system.file("data", "colon1.Rdata", package = "scMRMA"))
-result <- scMRMA(input=colon1,
-                 species="Mm",
-                 db="panglaodb",
-                 p=0.05,
-                 normalizedData=F,
-                 selfDB=NULL,
-                 selfClusters=NULL)
+result <- scMRMA(input = colon1,
+                 species = "Mm",
+                 db = "panglaodb",
+                 p = 0.05,
+                 normalizedData = F,
+                 selfDB = NULL,
+                 selfClusters = NULL)
 ```
 
 `input` Count matrix with genes in row and cells in column. Formats of matrix, dgCMatrix, data.frame, Seurat and SingleCellExperiment object are all acceptable.
