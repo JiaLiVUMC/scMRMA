@@ -29,18 +29,18 @@ result <- scMRMA(input=colon1,
                  selfClusters=NULL)
 ```
 
-'input'
+`input` Count matrix with genes in row and cells in column. Formats of matrix, dgCMatrix, data.frame, Seurat and SingleCellExperiment object are all acceptable.
 
-'species'
+`species` Species of cell. Select `"Hs"` (default) or `"Mm"`.
 
-'db'
+`db` Hierarchical cell type reference database. Select `"panglaodb"` (default) or `"TcellAI"`.
 
-'p'
+`p` P value cutoff from fisher test for the significant cell type enrichment. Default is `0.05`.
 
-'normalizedData'
+`normalizedData` Use user-provided normalized data. Default is `F` to use default method for normalization.
 
-'selfDB'
+`selfDB` Use user-provided or modified hierarchical cell type database.
 
-'selfClusters'
+`selfClusters` Use fixed clusters in each level. If provided cluster information, re-clustering will not be performed for intermediate nodes.
 
 __Output__
