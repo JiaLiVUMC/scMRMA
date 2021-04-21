@@ -20,6 +20,6 @@ After installing scMRMA, use following codes to run examples
 ```R
 library(scMRMA)
 load(system.file("data", "colon1.Rdata", package = "scMRMA"))
-result <-scMRMA(input=colon1, species="Mm")
-head(result$multiR$annotationResult)
+result <-scMRMA(input=colon1,
+                species="Mm",db="panglaodb",p=0.05,normalizedData=F,selfDB=NULL,selfClusters=NULL)
 ```
