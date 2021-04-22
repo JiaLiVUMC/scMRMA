@@ -88,7 +88,7 @@ databaseVisual(celltype = CellType)
 ```
 
 <p align="center">
-  <img width="450"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database.png">
+  <img width="450"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database_TcellAI.png">
 </p>
 
 __Seurat input__
