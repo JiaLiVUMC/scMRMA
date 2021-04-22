@@ -67,3 +67,52 @@ __Self-defined database__
 CellType <- selfDefinedDatabase(file = system.file("data", "markerExample.txt", package = "scMRMA"))
 ```
 
+__Add genes to existed database__
+
+```R
+# Note: provide the correct format for gene and cell type list. First column includes genes and second column includes cell types in the last level.
+genelist <- matrix(c("genea","geneb","Tr1","Microglia"),nrow = 2,byrow = F)
+colnames(genelist) <- c("Gene","cell Type")
+CellType_new <- addGene(geneCellTypeList = genelist,celltype = CellType)
+
+```
+
+__Hierarchical database visualization__
+
+```R
+# Note: it will generate a Database.html file within your current path.
+CellType <- get_celltype(species="Hs",db="TcellAI")
+databaseVisual(celltype = CellType)
+```
+
+__Seurat input__
+
+```R
+library(scMRMA)
+load(system.file("data", "colon1.Rdata", package = "scMRMA"))
+
+# Creat Seurat object
+library(Seurat)
+colon1 <- CreateSeuratObject(colon1)
+colon1 <- NormalizeData(colon1, verbose=FALSE)
+colon1 <- FindVariableFeatures(colon1, selection.method = "vst", nfeatures = 2000, verbose=FALSE)
+colon1 <- ScaleData(colon1,features =VariableFeatures(colon1), verbose=FALSE)
+colon1 <- RunPCA(colon1,features = VariableFeatures(colon1), npcs = 50,verbose=FALSE,approx = T)
+colon1 <- RunUMAP(colon1, reduction = "pca", dims = 1:50, verbose=FALSE)
+
+# scMRMA annotation
+result <-scMRMA(input=colon1, species="Mm")
+
+# UMAP plot
+colon1[["scMRMA"]] <- result$multiR$annotationResult[colnames(colon1),ncol(result$multiR$annotationResult)]
+DimPlot(colon1,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
+colon1[["UniformR"]] <- result$uniformR$annotationResult[colnames(colon1),1]
+DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRUE)
+```
+
+```R
+# Use user-provided cluster information
+colon1 <- FindNeighbors(colon1,verbose = F)
+colon1 <- FindClusters(colon1,resolution = 0.5,verbose=F)
+result <- scMRMA(input=colon1, species="Mm",selfClusters=Idents(colon1)
+```
