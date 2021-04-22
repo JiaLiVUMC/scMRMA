@@ -88,7 +88,7 @@ databaseVisual(celltype = CellType)
 ```
 
 <p align="center">
-  <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database.png">
+  <img width="300"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database.png">
 </p>
 
 __Seurat input__
@@ -117,7 +117,7 @@ DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRU
 ```
 
 <p align="center">
-  <img width="300"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/scMRMA_panglaodb.png">
+  <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/scMRMA_panglaodb.png">
 </p>
 
 ```R
