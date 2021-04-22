@@ -71,6 +71,7 @@ __Add genes to existed database__
 
 ```R
 # Note: provide the correct format for gene and cell type list. First column includes genes and second column includes cell types in the last level.
+
 genelist <- matrix(c("genea","geneb","Tr1","Microglia"),nrow = 2,byrow = F)
 colnames(genelist) <- c("Gene","cell Type")
 CellType_new <- addGene(geneCellTypeList = genelist,celltype = CellType)
@@ -81,6 +82,7 @@ __Hierarchical database visualization__
 
 ```R
 # Note: it will generate a Database.html file within your current path.
+
 CellType <- get_celltype(species="Hs",db="TcellAI")
 databaseVisual(celltype = CellType)
 ```
@@ -112,6 +114,8 @@ DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRU
 
 ```R
 # Use user-provided cluster information
+# Note: cluster information should be provided as factor
+
 colon1 <- FindNeighbors(colon1,verbose = F)
 colon1 <- FindClusters(colon1,resolution = 0.5,verbose=F)
 result <- scMRMA(input=colon1, species="Mm",selfClusters=Idents(colon1)
