@@ -48,9 +48,11 @@ __Output__
 `result` A list includes annotation results based on multi-resolution and uniform-resolution. 
 
 `result$multiR$annotationResult` A data frame stores scMRMA annotation results for each cell in all reference levels. For example, totally four levels for database `panglaodb`.
+
 `result$multiR$meta` A data frame contains scMRMA cluster, celltype activity score and p value information for each cell in each level.
 
 `result$uniformR$annotationResult` A data frame stores uniform-resolution annotation results for each cell.
+
 `result$uniformR$meta` A data frame contains uniform-resolution cluster, celltype activity score and p value information for each cell in each level.
 
-##Example
+## Example
