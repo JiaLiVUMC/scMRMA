@@ -87,6 +87,10 @@ CellType <- get_celltype(species="Hs",db="TcellAI")
 databaseVisual(celltype = CellType)
 ```
 
+<p align="center">
+  <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database.png">
+</p>
+
 __Seurat input__
 
 ```R
