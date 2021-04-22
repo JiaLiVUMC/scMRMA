@@ -112,6 +112,10 @@ colon1[["UniformR"]] <- result$uniformR$annotationResult[colnames(colon1),1]
 DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRUE)
 ```
 
+<p align="center">
+  <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/scMRMA_panglaodb.png">
+</p>
+
 ```R
 # Use user-provided cluster information
 # Note: cluster information should be provided as factor
