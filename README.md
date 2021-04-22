@@ -124,3 +124,5 @@ colon1 <- FindNeighbors(colon1,verbose = F)
 colon1 <- FindClusters(colon1,resolution = 0.5,verbose=F)
 result <- scMRMA(input=colon1, species="Mm",selfClusters=Idents(colon1)
 ```
+
+
