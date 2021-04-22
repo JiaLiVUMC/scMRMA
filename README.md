@@ -99,7 +99,7 @@ colon1 <- CreateSeuratObject(colon1)
 colon1 <- NormalizeData(colon1, verbose=FALSE)
 colon1 <- FindVariableFeatures(colon1, selection.method = "vst", nfeatures = 2000, verbose=FALSE)
 colon1 <- ScaleData(colon1,features =VariableFeatures(colon1), verbose=FALSE)
-colon1 <- RunPCA(colon1,features = VariableFeatures(colon1), npcs = 50,verbose=FALSE,approx = T)
+colon1 <- RunPCA(colon1,features = VariableFeatures(colon1), npcs = 50,verbose=FALSE)
 colon1 <- RunUMAP(colon1, reduction = "pca", dims = 1:50, verbose=FALSE)
 
 # scMRMA annotation
