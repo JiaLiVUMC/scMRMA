@@ -56,3 +56,14 @@ __Output__
 `result$uniformR$meta` A data frame contains uniform-resolution cluster, celltype activity score and p value information for each cell in each level.
 
 ## Example
+
+__Self-defined database__
+
+```R
+# Note: please provide correct format of hierarchical database
+# >leaf celltype, root celltype
+# GeneA,GeneB,GeneC
+
+CellType <- selfDefinedDatabase(file = system.file("data", "markerExample.txt", package = "scMRMA"))
+```
+
