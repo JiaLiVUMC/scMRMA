@@ -13,7 +13,7 @@ devtools::install_github("JiaLiVUMC/scMRMA")
 ```
 some users might have issues when installing scMRMA package due to the version of C++, please check possible solution through [this website](https://teuder.github.io/rcpp4everyone_en/020_install.html)
 
-## Usage
+## Example
 
 After installing scMRMA, use following codes to run examples
 
@@ -55,7 +55,7 @@ __Output__
 
 `result$uniformR$meta` A data frame contains uniform-resolution cluster, celltype activity score and p value information for each cell in each level.
 
-## Example
+## Other functions
 
 __Self-defined database__
 
@@ -91,13 +91,13 @@ databaseVisual(celltype = CellType)
   <img width="450"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/Database_TcellAI.png">
 </p>
 
-__Seurat input__
+__Incorporate with Seurat__
 
 ```R
 library(scMRMA)
 load(system.file("data", "colon1.Rdata", package = "scMRMA"))
 
-# Creat Seurat object
+# Create Seurat object
 library(Seurat)
 colon1 <- CreateSeuratObject(colon1)
 colon1 <- NormalizeData(colon1, verbose=FALSE)
