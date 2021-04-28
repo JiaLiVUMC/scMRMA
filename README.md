@@ -15,11 +15,10 @@ some users might have issues when installing scMRMA package due to the version o
 
 ## Example
 
-After installing scMRMA, use following codes to run examples:
+After installing scMRMA, use following codes to run [example](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3580745):
 
 ```R
-# Note: Input dataset from [GSM3580745](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3580745).
-# Example will take two minutes.
+# Note: example will take two minutes.
 
 library(scMRMA)
 load(system.file("data", "MouseBrain.Rdata", package = "scMRMA"))
