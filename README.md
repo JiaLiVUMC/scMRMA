@@ -15,12 +15,15 @@ some users might have issues when installing scMRMA package due to the version o
 
 ## Example
 
-After installing scMRMA, use following codes to run examples
+After installing scMRMA, use following codes to run examples:
 
 ```R
+# Note: Input dataset from [GSM3580745](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3580745).
+# Example will take two minutes.
+
 library(scMRMA)
-load(system.file("data", "colon1.Rdata", package = "scMRMA"))
-result <- scMRMA(input = colon1,
+load(system.file("data", "MouseBrain.Rdata", package = "scMRMA"))
+result <- scMRMA(input = Brain_GSM3580745,
                  species = "Mm",
                  db = "panglaodb",
                  p = 0.05,
@@ -95,25 +98,23 @@ __Incorporate with Seurat__
 
 ```R
 library(scMRMA)
-load(system.file("data", "colon1.Rdata", package = "scMRMA"))
+load(system.file("data", "Brain_GSM3580745.Rdata", package = "scMRMA"))
 
 # Create Seurat object
 library(Seurat)
-colon1 <- CreateSeuratObject(colon1)
-colon1 <- NormalizeData(colon1, verbose=FALSE)
-colon1 <- FindVariableFeatures(colon1, selection.method = "vst", nfeatures = 2000, verbose=FALSE)
-colon1 <- ScaleData(colon1,features =VariableFeatures(colon1), verbose=FALSE)
-colon1 <- RunPCA(colon1,features = VariableFeatures(colon1), npcs = 50,verbose=FALSE)
-colon1 <- RunUMAP(colon1, reduction = "pca", dims = 1:50, verbose=FALSE)
+brain <- CreateSeuratObject(Brain_GSM3580745)
+brain <- NormalizeData(brain, verbose=FALSE)
+brain <- FindVariableFeatures(brain, selection.method = "vst", nfeatures = 2000, verbose=FALSE)
+brain <- ScaleData(brain,features =VariableFeatures(brain), verbose=FALSE)
+brain <- RunPCA(brain,features = VariableFeatures(brain), npcs = 50,verbose=FALSE)
+brain <- RunUMAP(brain, reduction = "pca", dims = 1:50, verbose=FALSE)
 
 # scMRMA annotation
-result <-scMRMA(input=colon1, species="Mm")
+result <-scMRMA(input=brain, species="Mm")
 
 # UMAP plot
-colon1[["scMRMA"]] <- result$multiR$annotationResult[colnames(colon1),ncol(result$multiR$annotationResult)]
-DimPlot(colon1,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
-colon1[["UniformR"]] <- result$uniformR$annotationResult[colnames(colon1),1]
-DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRUE)
+brain[["scMRMA"]] <- result$multiR$annotationResult[colnames(colon1),ncol(result$multiR$annotationResult)]
+DimPlot(brain,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
 ```
 
 <p align="center">
@@ -124,9 +125,9 @@ DimPlot(colon1,reduction = "umap",group.by = "UniformR",label = TRUE,repel = TRU
 # Use user-provided cluster information
 # Note: cluster information should be provided as factor
 
-colon1 <- FindNeighbors(colon1,verbose = F)
-colon1 <- FindClusters(colon1,resolution = 0.5,verbose=F)
-result <- scMRMA(input=colon1, species="Mm",selfClusters=Idents(colon1)
+brain <- FindNeighbors(brain,verbose = F)
+brain <- FindClusters(brain,resolution = 0.5,verbose=F)
+result <- scMRMA(input=brain, species="Mm",selfClusters=Idents(brain)
 ```
 
 
