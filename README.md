@@ -117,7 +117,7 @@ DimPlot(brain,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
 ```
 
 <p align="center">
-  <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/scMRMA_panglaodb.png">
+  <img width="950"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/scMRMA_brain.png">
 </p>
 
 ```R
