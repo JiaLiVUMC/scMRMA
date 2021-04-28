@@ -112,7 +112,7 @@ brain <- RunUMAP(brain, reduction = "pca", dims = 1:50, verbose=FALSE)
 result <-scMRMA(input=brain, species="Mm")
 
 # UMAP plot
-brain[["scMRMA"]] <- result$multiR$annotationResult[colnames(colon1),ncol(result$multiR$annotationResult)]
+brain[["scMRMA"]] <- result$multiR$annotationResult[colnames(brain),ncol(result$multiR$annotationResult)]
 DimPlot(brain,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
 ```
 
