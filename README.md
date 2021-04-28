@@ -126,7 +126,7 @@ DimPlot(brain,reduction = "umap",group.by = "scMRMA",label = TRUE,repel = TRUE)
 
 brain <- FindNeighbors(brain,verbose = F)
 brain <- FindClusters(brain,resolution = 0.5,verbose=F)
-result <- scMRMA(input=brain, species="Mm",selfClusters=Idents(brain)
+result <- scMRMA(input=brain, species="Mm",selfClusters=Idents(brain))
 ```
 
 
