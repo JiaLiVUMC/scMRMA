@@ -28,7 +28,8 @@ result <- scMRMA(input = Brain_GSM3580745,
                  p = 0.05,
                  normalizedData = F,
                  selfDB = NULL,
-                 selfClusters = NULL)
+                 selfClusters = NULL,
+                 k=20)
 ```
 
 `input` Count matrix with genes in row and cells in column. Formats of matrix, dgCMatrix, data.frame, Seurat and SingleCellExperiment object are all acceptable.
@@ -44,6 +45,8 @@ result <- scMRMA(input = Brain_GSM3580745,
 `selfDB` Use user-provided or modified hierarchical cell type database.
 
 `selfClusters` Use fixed clusters in each level. If provided cluster information, re-clustering will not be performed for intermediate nodes.
+
+`k` Number of nearest neighbor to build the graph for clustering. Dafault if 20. The value can be set smaller for very rare and small clusters.
 
 __Output__
 
@@ -65,7 +68,7 @@ __Self-defined database__
 # Note: please provide correct format of hierarchical database
 # By default, cell types and genes are separeted by comma without space
 # >CD4 T cells,T cells #leaf celltype,root celltype
-# CD4,FOXP3,IL2RA,IL7R #GeneA,GeneB,GeneC
+# CD4,FOXP3,IL2RA,IL7R #GeneA,GeneB,GeneC,GeneD
 
 CellType <- selfDefinedDatabase(file = system.file("data", "markerExample.txt", package = "scMRMA"))
 ```
@@ -83,8 +86,8 @@ __Add genes to existing database__
 ```R
 # Note: provide the correct format for gene and cell type list. First column includes genes and second column includes cell types in the last level.
 
-genelist <- matrix(c("genea","geneb","Tr1","Microglia"),nrow = 2,byrow = F)
-colnames(genelist) <- c("Gene","cell Type")
+genelist <- matrix(c("Genea","Geneb","Tr1","Microglia"),nrow = 2,byrow = F)
+colnames(genelist) <- c("Gene","cellType")
 CellType_new <- addGene(geneCellTypeList = genelist,celltype = CellType)
 
 ```
