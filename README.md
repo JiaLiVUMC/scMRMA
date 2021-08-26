@@ -63,13 +63,22 @@ __Self-defined database__
 
 ```R
 # Note: please provide correct format of hierarchical database
-# >leaf celltype, root celltype
-# GeneA,GeneB,GeneC
+# By default, cell types and genes are separeted by comma without space
+# >CD4 T cells,T cells #leaf celltype,root celltype
+# CD4,FOXP3,IL2RA,IL7R #GeneA,GeneB,GeneC
 
 CellType <- selfDefinedDatabase(file = system.file("data", "markerExample.txt", package = "scMRMA"))
 ```
 
-__Add genes to existed database__
+__Use pre-trained classifier from Garnett__
+
+```R
+# Note: pre-trained human PBMC Garnett classifier
+
+hsPBMC <- selfDefinedDatabase(file = system.file("data", "Garnett_hsPBMC.txt", package = "scMRMA"))
+```
+
+__Add genes to existing database__
 
 ```R
 # Note: provide the correct format for gene and cell type list. First column includes genes and second column includes cell types in the last level.
