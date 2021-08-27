@@ -66,7 +66,7 @@ scMRMA <- function(input,species,db="panglaodb",p=0.05,
     #print(unique(CellType[,2]))
   }
   
-  if(length(intersect(CellType$Gene,rownames(scdata))) ==0){
+  if(length(intersect(CellType$gene,rownames(scdata))) ==0){
     stop("No overlapped genes for input matrix and reference database")
   }
   
