@@ -1,4 +1,4 @@
-# scMRMA: single cell Multi-Resolution Marker-based Annotatation Algorithm
+# scMRMA: single cell Multi-Resolution Marker-based Annotation Algorithm
 
 <p align="center">
   <img width="900"  src="https://github.com/JiaLiVUMC/scMRMA/blob/main/overview_scMRMA.png">
