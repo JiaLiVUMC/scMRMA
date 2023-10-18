@@ -141,4 +141,8 @@ brain <- FindClusters(brain,resolution = 0.5,verbose=F)
 result <- scMRMA(input=brain, species="Mm",selfClusters=Idents(brain))
 ```
 
+##Citation
+
+Li, Jia, et al. "scMRMA: single cell multiresolution marker-based annotation." Nucleic acids research 50.2 (2022): e7-e7.
+
 
